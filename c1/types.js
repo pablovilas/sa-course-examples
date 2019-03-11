@@ -17,9 +17,9 @@
 
 */
 
-//
+//////////////////////
 // Number
-//
+//////////////////////
 
 // Javascript numbers are double-precision 64-bit format IEEE 754 values
 
@@ -50,9 +50,9 @@ parseFloat('0.25'); // 0.25
 
 parseInt('hello'); // NaN
 
-//
+//////////////////////
 // String
-//
+//////////////////////
 
 'hellp'.length; // 5
 'hello'.charAt(0); // "h"
@@ -61,18 +61,18 @@ parseInt('hello'); // NaN
 var interpolation = ', world';
 `hello${interpolation}`;
 
-//
+//////////////////////
 // Other types
-//
+//////////////////////
 
 var object = {};
 object.attribute // undefined
 object.attribute = null;
 object.attribute // null
 
-//
+//////////////////////
 // Boolean
-//
+//////////////////////
 
 true;
 false;
@@ -84,9 +84,13 @@ null == false; // false
 undefined == false; // false
 1 == true; // true
 10 == true; // false
+10 == '10';
 "hello" == true; // false
 0 === false // false, strict equal, no type conversion
 1 === true; // false, stric equal, no type conversion
+10 === '10'; // false, stric equal, no type conversion
+
+// There are also "!=" and "!==" operators
 
 /*
 Javascript truth
@@ -106,7 +110,106 @@ Boolean(''); // false
 Boolean(NaN); // false
 Boolean(10); // true
 
-//
+//////////////////////
 // Variables
-//
+//////////////////////
+
+// Block level variables, let 
+
+let foo = 0;
+if (true) {
+    let foo = 1;
+    console.log(foo); // 1
+}
+console.log(foo); // 0
+
+// Constant variables, const
+
+const PI = 3.14;
+PI = 3.14158; // throws a TypeError: Assignment to constant variable
+
+// "Normal" variables, var
+
+var baz = 0; // number
+baz = 10; // number
+baz = { attribute: 0 }; // object
+baz = [1, 2, 3, 4]; // array
+
+var bar = 0;
+if (true) {
+    var bar = 1;
+    console.log(bar); // 1
+}
+console.log(bar); // 1
+
+//////////////////////
+// Operators
+//////////////////////
+
+x = 0;
+x += 5; // 5
+y = 0;
+y = y + 5; // 5
+
+x++ // 5
+x // 6
+++x // 7
+
+y-- // 5
+y // 4
+--y // 3
+
+'hello' + 'ort'; // "hello ort"
+'1' + 2 + 3 // "123"
+1 + 2 + '3' // "33"
+
+//////////////////////
+// Control structures
+//////////////////////
+
+// if, else if, else
+
+var animal = 'dog';
+var sound = '';
+if (animal == 'cat') {
+    sound = 'meow';
+} else if (animal == 'dog') {
+    sound = 'woof';
+} else {
+    sound = 'no sound';
+}
+sound == 'woof';
+
+// while, do while
+
+while (true) {
+    // an infinite loop!
+}
+  
+var input;
+do {
+  input = Math.random();
+} while (input < 0.5);
+
+// for
+
+for (var i = 0; i < 5; i++) {
+    console.log(`iteration with "for" n˚: ${i}`);
+}
+
+// for..of
+
+var numbers = [0, 1, 2 ,3, 4];
+for (let item of numbers) {
+    console.log(`iteration whit "for..of" n˚: ${item}`);
+}
+
+// for..in
+
+var person = { name: 'John', lastName: 'Doe' };
+for (let attribute in person) {
+    console.log(`iteration whit "for..in" n˚: ${person[attribute]}`);
+}
+
+// short circuit
 
