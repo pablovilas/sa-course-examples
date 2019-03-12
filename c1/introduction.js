@@ -212,4 +212,183 @@ for (let attribute in person) {
 }
 
 // short circuit
+var obj = { name: 'John' };
+var name = obj && obj.name;
 
+// cached example
+
+var cachedName = null;
+var name = cachedName || (cachedName = obj.name); 
+
+// ternary operator
+
+var age = 25;
+var allowed = (age > 18) ? 'yes' : 'no';
+console.log(allowed);
+
+// switch
+
+const action = 'update';
+switch (action) {
+    case 'create':
+        console.log('Create invoked');
+        break;
+    case 'update':
+        console.log('Update invoked');
+        break;
+    case 'delete':
+        console.log('Delete invoked');
+        break;
+    default:
+        console.log('Default action invoked');
+}
+
+//////////////////////
+// Objects
+//////////////////////
+
+/**
+
+JavaScript objects can be thought of as simple collections of name-value pairs. As such, they are similar to:
+
+* Dictionaries in Python.
+* Hash tables in C and C++.
+* HashMaps in Java.
+
+ */
+
+var obj = new Object();
+var obj = {};
+var obj = {
+    id: 23,
+    date: '2019-03-20',
+    name: 'John',
+    lastName: 'Doe',
+    address: { // nested object
+        street: 'Brasil Av. 4561',
+        city: 'Montevideo'
+    },
+    courses: ['P1', 'P2', 'DA1', 'DA2', 'AS'] // array
+};
+
+`${obj.address.street}, ${obj.address.city}`
+`${obj['address']['street']}, ${obj['address']['city']}`
+
+// object class 
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    toString () {
+        return `{ name: "${this.name}", age: ${this.age} }`;
+    }
+    sayHi() {
+        return `Hi!, I'm ${this.name}`;
+    }
+}
+
+class Student extends Person {
+    constructor(name, age, number) {
+        super(name, age);
+        this.number = number;
+    }
+}
+
+var student = new Student("John", 25, 190432);
+
+//////////////////////
+// Arrays
+//////////////////////
+
+var a = new Array();
+a[0] = 'dog';
+a[1] = 'cat';
+a[2] = 'hen';
+a.length; // 3
+
+var a = ['dog', 'cat', 'hen'];
+a.length; // 3
+
+a[100] = 'fox';
+a.length; // 101
+
+typeof a[90]; // undefined
+
+a.push('cow');
+
+//////////////////////
+// Functions
+//////////////////////
+
+// object prototype
+
+// functions are objects
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.toString = function () {
+        return `{ name: "${this.name}", age: ${this.age} }`;
+    }
+}
+
+var you = new Person('John', 25);
+you.toString();
+
+// extending object
+
+Person.prototype.sayHi = function () {
+    return `Hi!, I'm ${this.name}!`;
+};
+
+you.sayHi();
+
+// regular functions
+
+function multiply(a, b) {
+    var result = a * b;
+    return result;
+}
+
+multiply(2,4); // 8
+multiply(); // NaN, you can ommit parameters
+
+function sayHi(name) {
+    if (name) {
+        console.log(`Hi!, I'm ${name}!`);
+    } else {
+        console.log(`Hi!, I'm a stranger!`);
+    }
+}
+
+sayHi('John');
+sayHi();
+
+var approved = function (score) {
+    return score >= 86;
+}
+approved(90);
+
+// nested functions
+
+function calculate(score, assistance) {
+    var factor = function (n) {
+        return n > 40;
+    }
+    if (score >= 86) {
+        return factor(assistance);
+    }
+    return score > 70 && factor(assistance);
+}
+
+// closures
+
+function prefixAndSuffix(prefix) {
+    return function(suffix) {
+        return `${prefix} ${suffix}`;
+    };
+}
+var addSuffix = prefixAndSuffix('Hi!, I\'m ');
+addSuffix('John');
