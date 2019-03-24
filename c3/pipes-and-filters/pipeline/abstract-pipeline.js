@@ -1,11 +1,11 @@
-var EventEmitter = require('events'),
+const EventEmitter = require('events'),
     Util = require('util');
 
-class Pipeline {
+class AbstractPipeline {
     constructor() {
         this.filters = [];
         EventEmitter.call(this);
-        Util.inherits(Pipeline, EventEmitter);
+        Util.inherits(AbstractPipeline, EventEmitter);
     }
     use(filter) {
         this.filters.push(filter);
@@ -16,4 +16,4 @@ class Pipeline {
     }
 }
 
-module.exports = Pipeline;
+module.exports = AbstractPipeline;

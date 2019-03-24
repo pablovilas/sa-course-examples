@@ -1,9 +1,9 @@
-var Pipeline = require('./direct-pipeline');
+var Pipeline = require('./pipeline/pipeline');
 
 var pipeline = new Pipeline();
 
 var filterMultiply = (input, next) => {
-    var result = input * input;
+    let result = input * input;
     next(null, result);
 };
 var filterPrint = (input, next) => {

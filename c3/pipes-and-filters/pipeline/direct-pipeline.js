@@ -1,10 +1,10 @@
-var Pipeline = require('./pipeline');
+const AbstractPipeline = require('./abstract-pipeline');
 
-class DirectPipeline extends Pipeline {
+class DirectPipeline extends AbstractPipeline {
     start(input) {
-        var pendingFilters = this.filters.slice();
+        let pendingFilters = this.filters.slice();
         // Iterate over filters array
-        var loop = (err, result) => {
+        let loop = (err, result) => {
             if (err) {
                 // Emit an event and stop execution if an error occurs
                 return this.emit('error', err);
@@ -13,7 +13,7 @@ class DirectPipeline extends Pipeline {
                 // Emit an evente and finalize excecution when no more filters left
                 return this.emit('end', result);
             }
-            var filter = pendingFilters.shift();  
+            let filter = pendingFilters.shift();  
             process.nextTick(() => {
                 filter.call(this, result, loop);
             });

@@ -1,6 +1,6 @@
-var Pipeline = require('./pipeline');
+const AbstractPipeline = require('./abstract-pipeline');
 
-class QueuePipeline extends Pipeline {
+class QueuePipeline extends AbstractPipeline {
     start(input) {
         throw new Error('Not implemented');
     }
