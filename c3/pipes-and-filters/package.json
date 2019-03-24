@@ -1,0 +1,11 @@
+{
+  "name": "pipes-and-filters",
+  "version": "1.0.0",
+  "description": "Implementation of the Pipes and Filters architectural style. Divide a larger processing task into a sequence of smaller, independent processing steps (Filters) that are connected by channels (Pipes)",
+  "main": "pipeline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
