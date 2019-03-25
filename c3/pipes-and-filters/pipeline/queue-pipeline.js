@@ -21,11 +21,12 @@ class QueuePipeline extends AbstractPipeline {
                         if (err) {
                             this.emit('error', err);
                             done(err);
+                        } else {
+                            if (next) {
+                                next.add(result, { removeOnComplete: true });
+                            }
+                            done();
                         }
-                        if (next) {
-                            next.add(result, { removeOnComplete: true });
-                        }
-                        done();
                     });
                 });
                 if (!next) {
