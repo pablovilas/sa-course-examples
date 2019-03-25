@@ -11,7 +11,7 @@ class AbstractPipeline {
         this.filters.push(filter);
         return this;
     }
-    start(input) {
+    run(input) {
         throw new Error('Not implemented');
     }
 }

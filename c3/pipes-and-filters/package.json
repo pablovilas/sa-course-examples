@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bull": "^3.7.0",
     "config": "^3.0.1"
   }
 }

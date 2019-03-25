@@ -14,7 +14,7 @@ var filterPrint = (input, next) => {
 pipeline.use(filterMultiply);
 pipeline.use(filterPrint);
 
-pipeline.start(5);
+pipeline.run(5);
 
 pipeline.once('error', (err) => {
     console.log(`The error is ${err}`);
