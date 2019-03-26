@@ -15,11 +15,13 @@ pipeline.use(filterMultiply);
 pipeline.use(filterPrint);
 
 pipeline.run(5);
+pipeline.run(10);
+pipeline.run(15);
 
-pipeline.once('error', (err) => {
+pipeline.on('error', (err) => {
     console.log(`The error is ${err}`);
 });
 
-pipeline.once('end', (result) => {
+pipeline.on('end', (result) => {
     console.log(`The result is ${result}`);
 });
