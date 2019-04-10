@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "bull": "^3.7.0",
-    "config": "^3.0.1"
+    "config": "^3.0.1",
+    "request": "^2.88.0"
   }
 }
