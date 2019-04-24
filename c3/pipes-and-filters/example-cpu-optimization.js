@@ -6,11 +6,15 @@ var Pipeline = require('./pipeline/pipeline');
 var pipeline = new Pipeline();
 
 var filterEncrypt = (input, next) => {
-  // sync
-  // require('./filters/encrypt').filterEncrypt(input, next);
+  const concurrencyEnabled = process.argv[2] == '--async';
 
-  // async
-  fork('./filters/encrypt.js', [input]).on('message', result => next(null, result));
+  if (concurrencyEnabled) {
+    // async
+    fork('./filters/encrypt.js', [input]).on('message', result => next(null, result));
+  } else {
+    // sync
+    require('./filters/encrypt').filterEncrypt(input, next);
+  }
 };
 
 var filterPrint = (input, next) => {
