@@ -4,12 +4,15 @@
   "description": "Implementation of the Pipes and Filters architectural style. Divide a larger processing task into a sequence of smaller, independent processing steps (Filters) that are connected by channels (Pipes)",
   "main": "example.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-sync": "node ./example-cpu-optimization.js --sync",
+    "start-async": "node ./example-cpu-optimization.js --async"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "bull": "^3.7.0",
-    "config": "^3.0.1"
+    "config": "^3.0.1",
+    "request": "^2.88.0"
   }
 }
