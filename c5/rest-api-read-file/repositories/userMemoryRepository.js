@@ -1,9 +1,11 @@
+const config = require('config');
 const UserRepository = require('./userRespository');
 const FileReader = require('../utils/fileReader');
 const User = require('../models/user');
 
 module.exports = class UserMemoryRepository extends UserRepository {
     constructor() {
+        console.log('Using user memory respository');
         super();
         this.users = [];
         load(this.users);
@@ -18,7 +20,7 @@ module.exports = class UserMemoryRepository extends UserRepository {
 
 async function load(output) {
     try {
-        const result = await FileReader.readCVS('./data/hw_25000.csv');
+        const result = await FileReader.readCVS(config.get('data.file'));
         convertToModel(result, output);
     } catch (err) {
         console.log(`Error while loading data file: ${err}`);

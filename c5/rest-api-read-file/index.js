@@ -11,4 +11,8 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 app.listen(8080);
 
-console.log('Service started!');
+console.log(`Server started, see http://localhost:8080
+    Endpoints:
+        * GET /users
+        * GET /users?limit=:limit&offset=:offeset
+        * GET /users/:id`);

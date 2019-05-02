@@ -1,4 +1,4 @@
-const UserRepository = require('../repositories/userMemoryRepository');
+const UserRepository = require('../repositories/repository')('user');
 
 module.exports = class UserService {
     constructor() {
