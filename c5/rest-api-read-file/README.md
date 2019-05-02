@@ -54,8 +54,8 @@ considerar que ambos archivos se encuentran en formato *CSV*.
 
 Algunos de los posibles módulos a utilizar (no restringidos a éstos) son:
 
-1. *koa*: web framework
-2. *koa-json*: convierte objetos en JSON
-3. *koa-logger*: logging de cada request y response
-4. *koa-router*: gestión simple de rutas
-5. *sqlite3*: base de datos simple y embebida
+1. *[koa](https://github.com/koajs/koa)*: web framework
+2. *[koa-json](https://github.com/koajs/json)*: convierte objetos en JSON
+3. *[koa-logger](https://github.com/koajs/logger)*: logging de cada request y response
+4. *[koa-router](https://github.com/ZijianHe/koa-router)*: gestión simple de rutas
+5. *[sqlite3](https://github.com/mapbox/node-sqlite3)*: base de datos simple y embebida
