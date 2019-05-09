@@ -59,7 +59,32 @@ Los endpoints son los siguientes:
     }
     ```
 
-Todos los endpoints excepto */login/* deben estar protegidos. Puede bajar una colección de los endpoints de ejemplo [aquí](User_API.postman_collection.json)
+Todos los endpoints excepto */login/* deben estar protegidos. 
+Al momento de implementar la protección de endpoints primero va a tener que generar un token de JWT que será devuelto al cliente y éste lo utilizara en las subsiguiente llamadas.
+
+**POST** */login/*
+	```json
+    {
+        "clientId": "client_id",
+        "clientSecret": "client_secret_shh"
+    }
+    ```
+    
+respuesta:
+
+	```json
+    {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6Im9ydCIsImlhdCI6MTU1MTI5NDkwOX0.1AcM6WjVEcU9iE6OEsAPBOMUXGGF9Mt9o8iCxVzOdZ0"
+    }
+    ```
+
+**GET** */users/:id*
+
+Agregar el header ```Authorization``` con la informacion
+
+```Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6Im9ydCIsImlhdCI6MTU1MTI5NDkwOX0.1AcM6WjVEcU9iE6OEsAPBOMUXGGF9Mt9o8iCxVzOdZ0```
+
+Puede bajar una colección de los endpoints de ejemplo [aquí](User_API.postman_collection.json).
 
 ### Posibles Node modules a utilizar
 
