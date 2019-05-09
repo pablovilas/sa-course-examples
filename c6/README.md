@@ -59,7 +59,7 @@ Los endpoints son los siguientes:
     }
     ```
 
-Todos los endpoints excepto */login/* deben estar protegidos
+Todos los endpoints excepto */login/* deben estar protegidos. Puede bajar una colección de los endpoints de ejemplo [aquí](User_API.postman_collection.json)
 
 ### Posibles Node modules a utilizar
 
