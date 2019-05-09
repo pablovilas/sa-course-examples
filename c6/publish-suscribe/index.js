@@ -1,15 +1,21 @@
-const redis = require('redis');
-
-let subscriber = redis.createClient();
-let publisher  = redis.createClient();
+const Publisher = require('./publisher');
+const Subscriber = require('./subscriber');
 
 let channel = 'test_channel';
+let publisher = new Publisher(channel);
+let subscriber = new Subscriber(channel);
 
-subscriber.on('message', function(channel, message) {
-  console.log(`Message '${message}' on channel '${channel}' arrived!`);
+subscriber.subscribe((message) => {
+    console.log(`Received message: ${JSON.stringify(message)}\n`);
 });
 
-subscriber.subscribe(channel);
+let timerId = setInterval(() => {
+    let id = Math.floor(Math.random() * 10);
+    let message = { id: id, name: `Name ${id}` };
+    console.log(`Send message: ${JSON.stringify(message)}`);
+    publisher.publish(message);
+}, 3000);
 
-publisher.publish(channel, 'hello!');
-publisher.publish(channel, 'hello again!');
+setTimeout(() => { 
+    clearInterval(timerId) 
+}, 10000);
