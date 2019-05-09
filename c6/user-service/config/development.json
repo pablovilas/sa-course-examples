@@ -1,0 +1,10 @@
+{
+    "repository": {
+        "type": "disk"
+    },
+    "credentials": {
+        "clientId": "ort",
+        "clientSecret": "Ort123",
+        "secret": "OrtJWTSecretShh"
+    }
+}
