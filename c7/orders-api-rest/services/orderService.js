@@ -12,12 +12,15 @@ module.exports = class OrderService {
         if (offset) {
             query.skip(offset);
         }
-        return await query;
+        let orders = await query;
+        return orders.map((order) => order.toObject());
     }
-    async save(user) {
-        return await this.orderRepository.create(user);
+    async save(data) {
+        let user = await this.orderRepository.create(data);
+        return user.toObject();
     }
     async findById(id) {
-        return await this.orderRepository.findOne({ _id: id });
+        let order = await this.orderRepository.findOne({ _id: id });
+        return order.toObject();
     }
 }

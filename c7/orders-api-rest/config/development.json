@@ -1,5 +1,13 @@
 {
     "repository": {
         "url": "mongodb://localhost:27017/db"
+    },
+    "middlewares": {
+        "xmlParser": {
+            "xmlOptions": {
+                "explicitRoot": false,
+                "explicitArray": false
+            }
+        }
     }
 }

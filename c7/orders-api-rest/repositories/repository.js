@@ -1,5 +1,6 @@
 const Config = require('config');
 const mongoose = require('mongoose');
+const mongooseLeanId = require('mongoose-lean-id');
 const Order = require('../models/order');
 const Schema = mongoose.Schema;
 
@@ -11,7 +12,14 @@ module.exports = class Repository {
         this.connection = await mongoose.connect(this.getUrl(), { useNewUrlParser: true });
     }
     static async loadCollections() {
-        const orderSchema = new Schema(Order);
+        const orderSchema = new Schema(Order, { id: false });
+        orderSchema.set('toObject', {
+            transform: function (doc, ret) {
+                ret.id = ret._id.toString();
+                delete ret._id;
+                delete ret.__v;
+            }
+        });
         module.exports.Order = this.connection.model('Order', orderSchema);
     }
     static getUrl() {
