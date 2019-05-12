@@ -1,26 +1,16 @@
-const Repository = require('../repositories/repository');
+const OrderRepository = require('../repositories/orderRepository');
 
 module.exports = class OrderService {
     constructor() {
-        this.orderRepository = Repository.Order;
+        this.orderRepository = new OrderRepository();
     }
     async findAll(limit, offset) {
-        var query = this.orderRepository.find();
-        if (limit) {
-            query.limit(limit);
-        }
-        if (offset) {
-            query.skip(offset);
-        }
-        let orders = await query;
-        return orders.map((order) => order.toObject());
+        return await this.orderRepository.findAll(limit, offset);
     }
     async save(data) {
-        let user = await this.orderRepository.create(data);
-        return user.toObject();
+        return await this.orderRepository.save(data);
     }
     async findById(id) {
-        let order = await this.orderRepository.findOne({ _id: id });
-        return order.toObject();
+        return await this.orderRepository.findById(id);
     }
 }
