@@ -6,8 +6,10 @@ module.exports.initServer = async function () {
     const bodyParser = require('koa-bodyparser');
     const respond = require('./middlewares/respond');
     const router = require('./controllers/router');
+    const argv = require('minimist')(process.argv.slice(2));
     
     const app = new Koa();
+    const port = argv.port ? parseInt(argv.port) : 8080;
     
     app.use(logger());
     app.use(xmlParser(Config.get('middlewares.xmlParser')));
@@ -15,9 +17,9 @@ module.exports.initServer = async function () {
     app.use(router.routes());
     app.use(router.allowedMethods());
     app.use(respond());
-    app.listen(8080);
+    app.listen(port);
     
-    console.log(`Server started, see http://localhost:8080
+    console.log(`Server started, see http://localhost:${port}
         Endpoints:
             * GET  /orders
             * POST /orders
