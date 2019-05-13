@@ -1,6 +1,5 @@
 const Config = require('config');
 const mongoose = require('mongoose');
-const mongooseLeanId = require('mongoose-lean-id');
 const Order = require('../models/order');
 const Schema = mongoose.Schema;
 
