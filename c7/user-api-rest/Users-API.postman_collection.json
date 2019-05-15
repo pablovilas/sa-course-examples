@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "af07a713-9b37-4439-be31-f331adfa35ea",
+		"name": "Users API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Order",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/orders/5cd890af3671fb558ee5767f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"5cd890af3671fb558ee5767f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order XML",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/orders/5cd890af3671fb558ee5767f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"5cd890af3671fb558ee5767f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/orders?limit=10&offset=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Orders XML",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/orders?limit=10&offset=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2019-04-04\",\n    \"notes\": \"Order notes\",\n    \"total\": 100,\n    \"items\": [{\n        \"name\": \"Item 1\",\n        \"quantity\": 1,\n        \"price\": 50\n    },\n    {\n        \"name\": \"Item 2\",\n        \"quantity\": 1,\n        \"price\": 50\n    }],\n    \"customer\": {\n        \"name\": \"Customer 1\",\n        \"location\": {\n            \"latitude\": \"-36.000\",\n            \"longitude\": \"45.000\" \n        }\n    },\n    \"business\": {\n        \"name\": \"Business 1\",\n        \"location\": {\n            \"latitude\": \"-36.700\",\n            \"longitude\": \"45.300\" \n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Order XML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<order>\n\t<customer>\n\t    <location>\n\t        <latitude>-36.000</latitude>\n\t        <longitude>45.000</longitude>\n\t    </location>\n\t    <name>Customer 1</name>\n\t</customer>\n\t<business>\n\t    <location>\n\t        <latitude>-36.700</latitude>\n\t        <longitude>45.300</longitude>\n\t    </location>\n\t    <name>Business 1</name>\n\t</business>\n\t<status>1</status>\n\t<date>2019-04-04</date>\n\t<notes>Order notes</notes>\n\t<total>100</total>\n\t<items>\n\t    <name>Item 1</name>\n\t    <quantity>1</quantity>\n\t    <price>50</price>\n\t</items>\n\t<items>\n\t    <name>Item 2</name>\n\t    <quantity>1</quantity>\n\t    <price>50</price>\n\t</items>\n</order>"
+				},
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
