@@ -20,7 +20,11 @@ module.exports = class OrderRepository {
         return user.toObject();
     }
     async findById(id) {
-        let order = await this.orderRepository.findOne({ _id: id });
-        return order.toObject();
+        try {
+            let order = await this.orderRepository.findOne({ _id: id });
+            return order ? order.toObject() : null;
+        } catch (err) {
+            return null;
+        }
     }
 }
