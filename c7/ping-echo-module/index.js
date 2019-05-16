@@ -1,26 +1,24 @@
 const Ping = require('./lib/ping');
 
-let pingLocalServer = new Ping({ 
+let pingOrderService = new Ping({ 
     host: 'localhost', 
     path: '/orders', 
-    port: 8080, 
-    headers: {
-        'Accept': 'application/json' 
-    }
+    port: 8080,
+    timeout: 50,
+    interval: 10000
 });
-let pingLocalServerError = new Ping({
+let pingUserService = new Ping({
     host: 'localhost', 
-    path: '/orders/23', 
-    port: 8080, 
-    headers: { 
-        'Accept': 'application/json' 
-    }
+    path: '/users', 
+    port: 8081,
+    timeout: 50,
+    interval: 10000
 });
 
-pingLocalServer.ping();
-pingLocalServer.on('success', (message) => console.log(message));
-pingLocalServer.on('failure', (message) => console.log(message));
+pingOrderService.ping();
+pingOrderService.on('success', (message) => console.log(message));
+pingOrderService.on('failure', (message) => console.log(message));
 
-pingLocalServerError.ping();
-pingLocalServerError.on('success', (message) => console.log(message));
-pingLocalServerError.on('failure', (message) => console.log(message));
+pingUserService.ping();
+pingUserService.on('success', (message) => console.log(message));
+pingUserService.on('failure', (message) => console.log(message));
