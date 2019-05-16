@@ -26,5 +26,14 @@ Tácticas de performance:
 	* *Load balancing*
 	* Ejecutar múltiples copias de nuestros servicios con PM2
 
+### Desafío
+
+1. Escriba una pequeña aplicación que invoque la creación de recursos en una de las APIs de ejemplo provistas.
+2. Ahora, extienda su aplicación para que realice la creación de 1000 recursos en dicha API, midiendo el tiempo en realizar la tarea.
+3. Discutiendo con sus compañeros, ¿cómo piensa usted que puede ser optimizado el tiempo de respuesta obtenido en el punto 2?.
+4. Realice las modificaciones necesarias para optimizar el tiempo de respuesta.
+
+
+
 
 
