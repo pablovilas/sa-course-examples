@@ -4,7 +4,6 @@ const OrderController = require('./orderController');
 const router = new Router();
 const order = new OrderController();
 
-router.post('/login', (ctx, next) => auth.login(ctx, next));
 router.get('/orders', (ctx, next) => order.list(ctx, next));
 router.post('/orders', (ctx, next) => order.save(ctx, next));
 router.get('/orders/:id', (ctx, next) => order.fetch(ctx, next));
