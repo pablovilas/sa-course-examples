@@ -10,9 +10,14 @@ module.exports = class Repository {
         this.connection = null;
     }
     static async connect() {
-        const credentials = Config.get('repository');
-        this.connection = new Sequelize(credentials.database, 
-            credentials.user, credentials.password, credentials.options);
+        const databaseConfig = Config.get('repository');
+        const dialectConfig = databaseConfig[databaseConfig.dialect];
+        if (databaseConfig.dialect == 'mysql') {
+            this.connection = new Sequelize(dialectConfig.database, 
+                dialectConfig.user, dialectConfig.password, dialectConfig.options);
+        } else if (databaseConfig.dialect == 'sqlite') {
+            this.connection = new Sequelize(dialectConfig);
+        }
     }
     static async loadModels() {
         const Order = OrderModel(this.connection, Sequelize);

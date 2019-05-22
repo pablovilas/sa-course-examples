@@ -1,17 +1,24 @@
 {
     "repository": {
-        "user": "root",
-        "password": "root",
-        "database": "ordersDb",
-        "options": {
-            "host": "localhost",
-            "dialect": "mysql",
-            "pool": {
-              "max": 10,
-              "min": 0,
-              "acquire": 30000,
-              "idle": 10000
+        "dialect": "sqlite",
+        "mysql": {
+            "user": "root",
+            "password": "root",
+            "database": "ordersDb",
+            "options": {
+                "host": "localhost",
+                "dialect": "mysql",
+                "pool": {
+                  "max": 10,
+                  "min": 0,
+                  "acquire": 30000,
+                  "idle": 10000
+                }
             }
+        },
+        "sqlite": {
+            "dialect": "sqlite",
+            "storage": "./ordersDb.sqlite"
         }
     },
     "middlewares": {
