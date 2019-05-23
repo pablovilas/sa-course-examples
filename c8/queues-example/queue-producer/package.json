@@ -1,0 +1,16 @@
+{
+  "name": "queue-producer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.0.0",
+    "bull": "^3.9.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
