@@ -9,7 +9,7 @@
 
 ### Message queues
 
-Una cola de mensajes es una forma de comunicación asíncrona de un servicio a otro servicio. Cada mensaje es almacenado en una cola hasta que son procesados y eliminados. Cada mensaje se procesa una vez sola, por un solo consumidor.
+Una cola de mensajes es una forma de comunicación asíncrona de un servicio a otro servicio. Los mensajes son almacenados en una cola hasta que son procesados y eliminados. Cada mensaje se procesa una vez sola, por un solo consumidor.
 Las colas de mensajes se pueden usar para desacoplar procesos pesados, para acumular trabajo, etc.
 
 ![queue](queue_diagram.png)
