@@ -16,7 +16,7 @@ Las colas de mensajes se pueden usar para desacoplar procesos pesados, para acum
 
 ### Ejercicio
 
-Para implementar message queues en Node.js nos vamos a apoyar en la librería [bull](https://github.com/OptimalBits/bull) que nos permite una forma fácil y rápida de utilizar *queues*. Para esto necesitamos tener instalado [Redis](https://redis.io/).
+Para implementar message queues en Node.js nos vamos a apoyar en la librería [bull](https://github.com/OptimalBits/bull) que nos brinda una forma fácil y rápida de utilizar *queues*. Para esto necesitamos tener instalado [Redis](https://redis.io/).
 
 #### Procedimiento
 
@@ -47,6 +47,25 @@ Para implementar message queues en Node.js nos vamos a apoyar en la librería [b
 4. Monitoreo de colas de mensajes utilizando [Arena](https://github.com/bee-queue/arena#arena)
 
 	![Arena](https://github.com/bee-queue/arena/blob/master/screenshots/screen2.png)
+
+	Para esto simplemente creamos un nuevo proyecto agregando la dependencia y el siguiente código:
+
+    ```javascript
+    const Arena = require('bull-arena');
+
+    function init() {
+        const config = {
+        	name: 'queueName',
+            hostId: 'local',
+            redis: {
+				host: 'localhost'
+            }
+		};
+        Arena({ queues: [config] });
+    }
+
+    init();
+    ```
 
 5. Ahora, haga *pull* del repositorio del curso. Ejecute la aplicación [orders-api-rest](https://github.com/pablovilas/sa-course-examples/tree/master/c8/orders-api-rest) y en simultaneo ejecute el script [orders-creator-runner](https://github.com/pablovilas/sa-course-examples/tree/master/c8/orders-creator-runner) que su objetivo es crear masivamente órdenes en la API anteriormente mencionada. Comente los resultados.
 6. ¿Qué sugiere para optimizar el proceso anterior?, realice los cambios necesarios.
