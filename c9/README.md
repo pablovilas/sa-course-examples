@@ -3,7 +3,7 @@
 ### Objetivos
 
 * Exception handling en Node.js
-* Manejo de errores en ejemplo Car tracking
+* Revisión de diferencias entre sync/async
 
 ### Error handling en Node.js
 
@@ -198,7 +198,3 @@ try {
         }
     })();
     ```
-
-### Car tracking
-
-detectar errores, manejar errores
