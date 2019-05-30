@@ -13,7 +13,7 @@ Se pide implementar una libreria reutilizable de logging. La interfaz deseada es
 
 ```javascript
 const config = {
-	appender: 'console', // file, database
+    appender: 'console', // file, database
     level: Logger.INFO
     format: '[$level] $date: $log $error'
 };
