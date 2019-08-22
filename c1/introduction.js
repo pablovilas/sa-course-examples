@@ -297,6 +297,29 @@ class Student extends Person {
 }
 
 var student = new Student("John", 25, 190432);
+// Destructuring
+
+const obj = { nombre: "Carlos", apellido: "Gonzalez" };
+const { nombre } = obj;
+console.log(nombre); // "Carlos"
+
+// Spread operators
+// Los spread operators o operadores  de propagación permiten  una propagación o expansión individual dentro de un receptor.
+
+const obj1 = { firstName: 'Foo', age: 22 };
+const obj2 = { lastName: 'Bar', gender: 'M' };
+const newObj = { ...obj1, ...obj2, planet: 'Earth' };
+console.log(newObj)
+// { firstName: 'Foo', age: 22, lastName: 'Bar', gender: 'M', planet: 'Earth' }
+
+
+// ES5
+Math.max(5, 6, 8, 9, 11, 999);
+// 999
+
+// ES6
+const numbers = [5, 6, 8, 9, 11, 999];
+Math.max(...numbers)
 
 //////////////////////
 // Arrays
@@ -318,6 +341,77 @@ typeof a[90]; // undefined
 
 a.push('cow');
 
+// Destructuring
+
+const [a, b] = ["hola", "mundo"];
+console.log(a); // "hola"
+console.log(b); // "mundo"
+
+
+// Spread operators
+
+const codeburst = 'CODEBURST';
+const characters = [ ...codeburst ];
+console.log(characters)
+// [ 'C', 'O', 'D', 'E', 'B', 'U', 'R', 'S', 'T' ]
+
+const items = ['This', 'is', 'a', 'sentence'];
+console.log(items) // [ 'This', 'is', 'a', 'sentence' ]
+console.log(...items) // This is a sentence
+
+// array functions (ES6)
+
+// forEach
+let letras = ['a', 'b', 'c'];
+
+letras.forEach(function(element) {
+ console.log(element);
+});
+
+// a
+// b
+// c
+
+//find
+
+const inventory = [
+   {name: 'apples', quantity: 2},
+   {name: 'bananas', quantity: 0},
+   {name: 'cherries', quantity: 5}
+];
+console.log(inventory.find(fruit => fruit.name === 'cherries'));
+// { name: 'cherries', quantity: 5 }
+
+// map 
+
+var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+  return x * 2;
+});
+
+console.log(doubles);
+// [2, 10, 20, 30]
+console.log(numbers);
+// numbers is still [1, 5, 10, 15]
+
+var numbers = [1, 4, 9];
+var roots = numbers.map(Math.sqrt);
+
+console.log(roots);
+// [1, 2, 3]
+console.log(numbers);
+// [1, 4, 9]
+
+// filter 
+
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// ["exuberant", "destruction", "present"]
+
+
 //////////////////////
 // Functions
 //////////////////////
@@ -336,6 +430,36 @@ function Person(name, age) {
 
 var you = new Person('John', 25);
 you.toString();
+
+// arrow functions (ES6)
+//Proporcionan una sintaxis más compacta para la definición de funciones. Además conserva el valor de this
+
+var sum = (a, b) => a + b;
+sum(1,2) // 3
+
+// default parameters (ES6)
+
+function f (x, y = 7, z = 42) {
+   return x + y + z
+}
+f(1) // 50
+f(1, 1) // 44
+f(1, 1, 1) // 3
+
+// rest parameters (ES6)
+
+function findMax(...numbers) {
+   let max = Number.MIN_SAFE_INTEGER;
+   numbers.forEach(n => {
+       if (n > max) {
+           max = n;
+       }
+   })
+   return max;
+}
+
+console.log('max value ' + findMax(1, 123, 500, 115, 44, 88));
+// "500"
 
 // extending object
 
