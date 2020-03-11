@@ -214,6 +214,7 @@ for (let attribute in person) {
 }
 
 // short circuit
+
 var obj = { name: 'John' };
 var name = obj && obj.name;
 
@@ -299,20 +300,23 @@ class Student extends Person {
 }
 
 var student = new Student("John", 25, 190432);
-// Destructuring
 
-const obj = { nombre: "Carlos", apellido: "Gonzalez" };
-const { nombre } = obj;
-console.log(nombre); // "Carlos"
+// destructuring
 
-// Spread operators
-// Los spread operators o operadores  de propagación permiten  una propagación o expansión individual dentro de un receptor.
+const obj = { name: "Charly", apellido: "Sheen" };
+const { name } = obj;
+console.log(name); // "Charly"
+
+const [a, b] = ["hello", "world"];
+console.log(a); // "hello"
+console.log(b); // "world"
+
+// spread operators
 
 const obj1 = { firstName: 'Foo', age: 22 };
 const obj2 = { lastName: 'Bar', gender: 'M' };
 const newObj = { ...obj1, ...obj2, planet: 'Earth' };
-console.log(newObj)
-// { firstName: 'Foo', age: 22, lastName: 'Bar', gender: 'M', planet: 'Earth' }
+console.log(newObj); // { firstName: 'Foo', age: 22, lastName: 'Bar', gender: 'M', planet: 'Earth' }
 
 
 // ES5
@@ -343,14 +347,7 @@ typeof a[90]; // undefined
 
 a.push('cow');
 
-// Destructuring
-
-const [a, b] = ["hola", "mundo"];
-console.log(a); // "hola"
-console.log(b); // "mundo"
-
-
-// Spread operators
+// spread operators
 
 const codeburst = 'CODEBURST';
 const characters = [ ...codeburst ];
@@ -377,12 +374,11 @@ letras.forEach(function(element) {
 //find
 
 const inventory = [
-   {name: 'apples', quantity: 2},
-   {name: 'bananas', quantity: 0},
-   {name: 'cherries', quantity: 5}
+   { name: 'apples', quantity: 2 },
+   { name: 'bananas', quantity: 0 },
+   { name: 'cherries', quantity: 5 }
 ];
-console.log(inventory.find(fruit => fruit.name === 'cherries'));
-// { name: 'cherries', quantity: 5 }
+console.log(inventory.find(fruit => fruit.name === 'cherries')); // { name: 'cherries', quantity: 5 }
 
 // map 
 
@@ -391,18 +387,14 @@ var doubles = numbers.map(function(x) {
   return x * 2;
 });
 
-console.log(doubles);
-// [2, 10, 20, 30]
-console.log(numbers);
-// numbers is still [1, 5, 10, 15]
+console.log(doubles); // [2, 10, 20, 30]
+console.log(numbers); // numbers is still [1, 5, 10, 15]
 
 var numbers = [1, 4, 9];
 var roots = numbers.map(Math.sqrt);
 
-console.log(roots);
-// [1, 2, 3]
-console.log(numbers);
-// [1, 4, 9]
+console.log(roots); // [1, 2, 3]
+console.log(numbers); // [1, 4, 9]
 
 // filter 
 
@@ -410,15 +402,12 @@ var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
 const result = words.filter(word => word.length > 6);
 
-console.log(result);
-// ["exuberant", "destruction", "present"]
+console.log(result); // ["exuberant", "destruction", "present"]
 
 
 //////////////////////
 // Functions
 //////////////////////
-
-// object prototype
 
 // functions are objects
 
@@ -432,36 +421,6 @@ function Person(name, age) {
 
 var you = new Person('John', 25);
 you.toString();
-
-// arrow functions (ES6)
-//Proporcionan una sintaxis más compacta para la definición de funciones. Además conserva el valor de this
-
-var sum = (a, b) => a + b;
-sum(1,2) // 3
-
-// default parameters (ES6)
-
-function f (x, y = 7, z = 42) {
-   return x + y + z
-}
-f(1) // 50
-f(1, 1) // 44
-f(1, 1, 1) // 3
-
-// rest parameters (ES6)
-
-function findMax(...numbers) {
-   let max = Number.MIN_SAFE_INTEGER;
-   numbers.forEach(n => {
-       if (n > max) {
-           max = n;
-       }
-   })
-   return max;
-}
-
-console.log('max value ' + findMax(1, 123, 500, 115, 44, 88));
-// "500"
 
 // extending object
 
@@ -518,3 +477,32 @@ function prefixAndSuffix(prefix) {
 }
 var addSuffix = prefixAndSuffix('Hi!, I\'m ');
 addSuffix('John');
+
+// arrow functions (ES6)
+//Proporcionan una sintaxis más compacta para la definición de funciones. Además conserva el valor de this
+
+var sum = (a, b) => a + b;
+sum(1,2) // 3
+
+// default parameters (ES6)
+
+function f (x, y = 7, z = 42) {
+   return x + y + z
+}
+f(1) // 50
+f(1, 1) // 44
+f(1, 1, 1) // 3
+
+// rest parameters (ES6)
+
+function findMax(...numbers) {
+   let max = Number.MIN_SAFE_INTEGER;
+   numbers.forEach(n => {
+       if (n > max) {
+           max = n;
+       }
+   })
+   return max;
+}
+
+console.log('max value ' + findMax(1, 123, 500, 115, 44, 88)); // "500"
