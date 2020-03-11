@@ -18,7 +18,7 @@
     "koa-xml-body": "^2.1.0",
     "koa2-swagger-ui": "^2.14.1",
     "minimist": "^1.2.0",
-    "mongoose": "^5.5.7",
+    "mongoose": "^5.7.5",
     "swagger-jsdoc": "^3.2.9",
     "swagger-koa": "^2.1.0",
     "xml-js": "^1.6.11"
