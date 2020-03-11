@@ -84,7 +84,7 @@ null == false; // false
 undefined == false; // false
 1 == true; // true
 10 == true; // false
-10 == '10';
+10 == '10'; // true
 "hello" == true; // false
 0 === false // false, strict equal, no type conversion
 1 === true; // false, stric equal, no type conversion
@@ -160,8 +160,10 @@ y // 4
 --y // 3
 
 'hello' + 'ort'; // "hello ort"
-'1' + 2 + 3 // "123"
-1 + 2 + '3' // "33"
+'1' + 2 + 3; // "123" // additions converts from left to right
+1 + 2 + '3'; // "33"
+1 - 2 - '3'; // "-4" // divisions, multiplications and substractions always convert strings into numbers 
+"1" - 2 - 3; // "-4"
 
 //////////////////////
 // Control structures
