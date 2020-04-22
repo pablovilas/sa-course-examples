@@ -1,7 +1,7 @@
 // Documentation about Sequelize: http://docs.sequelizejs.com/manual/getting-started.html
 
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('mysql://root:root@localhost:3306/userDb');
+const sequelize = new Sequelize('mysql://root:password@localhost:3306/userDb');
 
 class User extends Sequelize.Model {
     static start() {
