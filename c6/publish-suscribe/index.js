@@ -4,15 +4,20 @@ const Subscriber = require('./subscriber');
 let channel = 'test_channel';
 let publisher = new Publisher(channel);
 let subscriber = new Subscriber(channel);
+let anotherSubscriber = new Subscriber(channel);
 
 subscriber.subscribe((message) => {
-    console.log(`Received message: ${JSON.stringify(message)}\n`);
+    console.log(`Received message from subscriber: ${JSON.stringify(message)}`);
+});
+
+anotherSubscriber.subscribe((message) => {
+    console.log(`Received message from another subscriber: ${JSON.stringify(message)}`);
 });
 
 let timerId = setInterval(() => {
     let id = Math.floor(Math.random() * 10);
     let message = { id: id, name: `Name ${id}` };
-    console.log(`Send message: ${JSON.stringify(message)}`);
+    console.log(`\nSend message: ${JSON.stringify(message)}`);
     publisher.publish(message);
 }, 3000);
 
