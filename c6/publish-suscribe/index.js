@@ -1,5 +1,6 @@
-const Publisher = require('./publisher');
-const Subscriber = require('./subscriber');
+const Binder = require('./binder'),
+    Publisher = Binder('publisher'),
+    Subscriber = Binder('subscriber');
 
 let channel = 'test_channel';
 let publisher = new Publisher(channel);

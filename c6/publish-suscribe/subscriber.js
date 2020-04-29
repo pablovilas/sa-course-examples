@@ -1,14 +1,8 @@
-const Connection = require('./connection');
-
-module.exports = class Subscriber {
+module.exports = class AbstractSubscriber {
     constructor(channel) {
         this.channel = channel;
-        this.connection = Connection.connect();
-        this.connection.subscribe(this.channel);
     }
     subscribe(onMessage) {
-        this.connection.on('message', (channel, message) => { 
-            onMessage(message);
-        });
+        throw Error('Not implemented');
     }
 }

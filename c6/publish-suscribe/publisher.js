@@ -1,11 +1,8 @@
-const Connection = require('./connection');
-
-module.exports = class Publisher {
+module.exports = class AbstractPublisher {
     constructor(channel) {
         this.channel = channel;
-        this.connection = Connection.connect();
     }
     publish(message) {
-        this.connection.publish(this.channel, JSON.stringify(message));
+        throw Error('Not implemented');
     }
 }
