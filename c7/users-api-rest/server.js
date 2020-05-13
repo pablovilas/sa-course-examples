@@ -9,7 +9,7 @@ module.exports.initServer = async function () {
     const argv = require('minimist')(process.argv.slice(2));
     
     const app = new Koa();
-    const port = argv.port ? parseInt(argv.port) : 8080;
+    const port = argv.port ? parseInt(argv.port) : 8081;
     
     app.use(logger());
     app.use(xmlParser(Config.get('middlewares.xmlParser')));
