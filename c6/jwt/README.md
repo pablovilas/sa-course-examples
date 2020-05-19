@@ -117,6 +117,11 @@ Al momento de implementar la protección de endpoints primero va a tener que gen
 
 #### API de autenticación y permisos
 
+Para generar las claves públicas y privadas puede utilizar este sitio: http://travistidwell.com/jsencrypt/demo/index.html
+Una vez autenticado el usuario debe generar el token JWT utilizando la clave privada, ésta debe permanecer en secreto solo para la entidad que genera los tokens.
+La clave pública puede ser distribuida y anexada a aquellos servicios que requieran validar la autenticidad del token JWT que llega como parte de las peticiones.
+Un ejemplo de endpoint de autenticación puede ser:
+
 **POST** */login/*
 
 ```json
