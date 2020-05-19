@@ -1,0 +1,10 @@
+{
+    "credentials": {
+        "clientId": "ort",
+        "clientSecret": "Ort123",
+        "permissions": [
+            "/order/read",
+            "/order/write"
+        ]
+    }
+}
