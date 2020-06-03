@@ -17,7 +17,7 @@ Tácticas de disponibilidad:
 	* Discusión e implementación de módulo para realizar *pings*
 * Monitoring
 	* Introducción a [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) y [comandos](http://pm2.keymetrics.io/docs/usage/quick-start/#cheat-sheet) mas utilizados
-	* [Plugins](https://pm2.io/doc/en/plus/guide/modules/) para monitoreo de servidores, bases de datos
+	* [Modules](https://pm2.keymetrics.io/docs/advanced/pm2-module-system/) para monitoreo de servidores, bases de datos
 	* Utilizar PM2 para ejecutar y monitorear múltiples procesos
 
 Tácticas de performance:
