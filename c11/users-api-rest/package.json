@@ -17,7 +17,7 @@
     "koa-router": "^7.4.0",
     "koa-xml-body": "^2.1.0",
     "koa2-swagger-ui": "^2.14.1",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "mongoose": "^5.5.7",
     "swagger-jsdoc": "^3.2.9",
     "swagger-koa": "^2.1.0",
