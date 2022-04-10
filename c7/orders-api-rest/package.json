@@ -16,7 +16,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-xml-body": "^2.1.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "mongoose": "^5.5.7",
     "xml-js": "^1.6.11"
   }
